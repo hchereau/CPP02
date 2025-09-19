@@ -22,10 +22,10 @@ PATH_INCLUDES += includes
 ### COMPILATION ################################################################
 
 COMPILATION := c++
-CFLAGS += -Wall
-CFLAGS += -Wextra
-CFLAGS += -Werror
-CFLAGS += -std=c++98
+CXXFLAGS += -Wall
+CXXFLAGS += -Wextra
+CXXFLAGS += -Werror
+CXXFLAGS += -std=c++98
 
 ## RULES #######################################################################
 

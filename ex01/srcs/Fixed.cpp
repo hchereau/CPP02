@@ -4,15 +4,15 @@
 const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed() : _value(0) {
-	std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << '\n';
 }
 
 Fixed::Fixed(const Fixed& other) : _value(other._value) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << '\n';
 }
 
 Fixed& Fixed::operator=(const Fixed& rhs) {
-	std::cout << "Copy assignment operator called" << std::endl;
+	std::cout << "Copy assignment operator called" << '\n';
 	if (this != &rhs) {
 		this->_value = rhs._value;
 	}
@@ -20,35 +20,37 @@ Fixed& Fixed::operator=(const Fixed& rhs) {
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << '\n';
 }
 
-Fixed::Fixed(int n) {
-	std::cout << "Int constructor called" << std::endl;
-	_value = n << _fractionalBits;
+Fixed::Fixed(int n) : _value(n << _fractionalBits) {
+	std::cout << "Int constructor called" << '\n';
 }
 
-Fixed::Fixed(float f) {
-	std::cout << "Float constructor called" << std::endl;
-	_value = static_cast<int>(roundf(f * (1 << _fractionalBits)));
+Fixed::Fixed(float f) : _value(static_cast<int>(roundf(f * static_cast<float>(scale())))) {
+	std::cout << "Float constructor called" << '\n';
 }
 
 float Fixed::toFloat() const {
-	return static_cast<float>(_value) / static_cast<float>(1 << _fractionalBits);
+	return static_cast<float>(_value) / static_cast<float>(scale());
 }
 
 int Fixed::toInt() const {
-	return _value >> _fractionalBits;
+	return static_cast<int>(toFloat());
 }
 
 int Fixed::getRawBits() const {
-	std::cout << "getRawBits member function called" << std::endl;
+	std::cout << "getRawBits member function called" << '\n';
 	return _value;
 }
 
 void Fixed::setRawBits(int const raw) {
-	std::cout << "setRawBits member function called" << std::endl;
+	std::cout << "setRawBits member function called" << '\n';
 	_value = raw;
+}
+
+int Fixed::scale() {
+	return 1 << _fractionalBits;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& x) {

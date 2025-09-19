@@ -22,10 +22,10 @@ PATH_INCLUDES += includes
 ### COMPILATION ################################################################
 
 COMPILATION := c++
-CFLAGS += -Wall
-CFLAGS += -Wextra
-CFLAGS += -Werror
-CFLAGS += -std=c++98
+CXXFLAGS += -Wall
+CXXFLAGS += -Wextra
+CXXFLAGS += -Werror
+CXXFLAGS += -std=c++98
 
 ## RULES #######################################################################
 
@@ -33,10 +33,10 @@ all: $(NAME)
 
 $(OBJS): $(PATH_OBJS)%.o: %.cpp
 		mkdir -p $(PATH_OBJS)
-		$(COMPILATION) $(CFLAGS) -c $< -o $@ -I $(PATH_INCLUDES)
+		$(COMPILATION) $(CXXFLAGS) -c $< -o $@ -I $(PATH_INCLUDES)
 
 $(NAME): $(OBJS)
-		$(COMPILATION) $(CFLAGS) $(OBJS) -o $(NAME) -I $(PATH_INCLUDES)
+		$(COMPILATION) $(CXXFLAGS) $(OBJS) -o $(NAME) -I $(PATH_INCLUDES)
 
 clean:
 		$(RM) -r $(PATH_OBJS)

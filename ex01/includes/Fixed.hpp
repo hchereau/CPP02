@@ -5,7 +5,7 @@
 
 class Fixed {
 private:
-	int				 _value;
+	int					_value;
 	static const int	_fractionalBits;
 
 public:
@@ -23,6 +23,8 @@ public:
 	// Accès brut (comme en ex00)
 	int  getRawBits() const;
 	void setRawBits(int const raw);
+
+	static	int scale();
 };
 
 // Surcharge de flux (imprime la représentation float)
