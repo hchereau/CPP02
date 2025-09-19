@@ -65,7 +65,6 @@ Fixed Fixed::operator+(const Fixed& rhs) const { return Fixed(this->toFloat() + 
 Fixed Fixed::operator-(const Fixed& rhs) const { return Fixed(this->toFloat() - rhs.toFloat()); }
 Fixed Fixed::operator*(const Fixed& rhs) const { return Fixed(this->toFloat() * rhs.toFloat()); }
 Fixed Fixed::operator/(const Fixed& rhs) const { return Fixed(this->toFloat() / rhs.toFloat()); }
-// le sujet tolère un crash si division par 0, donc pas d’obligation de guard:contentReference[oaicite:2]{index=2}.
 
 // -------- Incr/Decr --------
 Fixed& Fixed::operator++()	{ ++_value; return *this; }
