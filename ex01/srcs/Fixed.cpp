@@ -1,5 +1,4 @@
 #include "Fixed.hpp"
-#include <cmath> // roundf
 
 const int Fixed::_fractionalBits = 8;
 

@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <cmath>
 
 class Fixed {
 private:
@@ -48,6 +49,8 @@ public:
 	static const Fixed&	min(const Fixed& a, const Fixed& b);
 	static Fixed&		max(Fixed& a, Fixed& b);
 	static const Fixed&	max(const Fixed& a, const Fixed& b);
+
+	static int scale();
 };
 
 // Surcharge de flux (affiche la représentation float)
